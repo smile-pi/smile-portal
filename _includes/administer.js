@@ -1,0 +1,84 @@
+$ (document).ready(function(){
+  jQuery.post( "/smileService/usage", { who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the administer page" } );
+  
+    // get ethernet IP if available
+  jQuery.get("/assets/scripts/get-eth0ip.php", function(data) {
+      if (data) {
+        $("#ethernet-ip").text(data.trim());
+      };      
+  });
+
+  // get wifi mac if possible
+  jQuery.get("/assets/scripts/get-wifimac.php", function(data) {
+      if (data) {
+        $("#wifi-mac").text(data.trim());
+      };   
+  });
+  
+  function isTeacher(e) {
+    var userName = localStorage.getItem("who");
+    
+    if (userName && userName.toLowerCase().includes('teacher') === true) {
+      return true; 
+    }
+    return false;
+  };
+
+  function powerOff(e) {
+    // check for teacher
+    var proceed = isTeacher();
+    var userName = (localStorage.getItem("who")) ? localStorage.getItem("who") : 'blank';
+  
+    if (proceed) {
+      // make the post to turn off plug
+      jQuery.post("/assets/scripts/service-goodnight.php");
+    } else {
+      window.alert('You must be a teacher to perform this task. If you are a teacher, add the word teacher to your name, which is currently ' + userName + '.');
+    }
+    return this;
+  };
+  
+  $("#plug-power-off").on('click', function(e){
+    powerOff();
+  });
+});
+
+// https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+function srvTime(){
+  return $.ajax({async: false}).getResponseHeader( 'Date' ); 
+};
+
+var st = srvTime();
+var serverTime = new Date(st);
+var localTime = new Date();
+$('#client_time').html(localTime);
+$('#server_time').html(serverTime);
+
+//https://stackoverflow.com/a/4428396/178673
+Date.prototype.isSameDateAs = function(pDate) {
+  return (
+    this.getFullYear() === pDate.getFullYear() &&
+    this.getMonth() === pDate.getMonth() &&
+    this.getDate() === pDate.getDate()
+  );
+}
+
+if (!localTime.isSameDateAs(serverTime)) {
+  $.get("/assets/scripts/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes()); 
+  location.reload();
+};
+
+//     In the actual plug, get replace http://localhost:5984/smile with /couchdb
+$('#couchdb-export').on('click', function(){
+  var url = 'http://localhost:5984/smile/_all_docs?include_docs=true'; 
+  $.get(url,function (result)
+  {
+      var blob=new Blob([result]);
+      var link=document.createElement('a');
+      link.href=window.URL.createObjectURL(blob);
+      link.download="smile_db_dump_"+localTime.getFullYear()+""+("0" + (localTime.getMonth() + 1)).slice(-2)+""+("0" + localTime.getDate()).slice(-2)+""+localTime.getHours()+""+localTime.getMinutes()+".txt";
+      link.click();
+  
+  });      
+});
+

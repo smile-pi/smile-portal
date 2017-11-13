@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body class="container grid-lg">
+
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+      <div class="container">
+            {{ content }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+    {% contentblock page_specific_scripts %}
+    <script type="text/javascript">
+    jQuery(function() {
+      $("#lang").val(localStorage.getItem("locale"));
+      
+      $.i18n().load( {
+        en: '/assets/i18n/en.json',
+        es: '/assets/i18n/es.json'
+      } ).done(function() {
+        var locale = localStorage.getItem("locale");
+        if (locale){ 
+          $.i18n().locale = locale;
+          $('body').i18n();
+        } else {
+          localStorage.setItem("locale", "en");
+          $.i18n().locale = "en";
+          $('body').i18n();
+        };
+      });
+      
+      $('#lang').on('change', function(e) {
+        e.preventDefault();
+        console.log(this.value);
+        localStorage.setItem("locale", this.value);
+        $.i18n().locale = localStorage.getItem("locale");
+        $('body').i18n();
+      });
+    
+    });
+    </script>     
+  </body>
+
+</html>

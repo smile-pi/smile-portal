@@ -1,0 +1,18 @@
+---
+layout: default
+title: Analytics
+permalink: /analytics/
+---
+<h1 data-i18n="analytics-title">Analytics</h1>
+<p class="summary lead" data-i18n="analytics-description">
+    These device analytics can help you determine which students are actively interacting with their device.
+</p>
+
+<input type="text" placeholder="Filter results" id="user-filter" />
+<ul id="usage-log"></ul>
+
+{% contentfor page_specific_scripts no-convert %}
+<script type="text/javascript">
+  {% include analytics.js %}
+</script>
+{% endcontentfor %}

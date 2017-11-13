@@ -1,0 +1,20 @@
+<header class="navbar">
+  <section class="navbar-section">
+    <a class="site-title" href="{{ "/" | relative_url }}">SMILE-pi Portal</a>
+  <section class="navbar-section">
+          <a class="btn btn-link" href="{{ "/" | relative_url }}"><i class="icon icon-apps"></i> <span data-i18n="menu-applications">Applications</span></a>
+          <a class="btn btn-link" href="{{ "/about/" | relative_url }}" data-i18n="menu-about">About</a>
+          <a class="btn btn-link" href="{{ "/administer/" | relative_url }}" data-i18n="menu-administer">Administer</a>
+          <a class="btn btn-link" href="{{ "/analytics/" | relative_url }}" data-i18n="menu-analytics">Analytics</a>
+          <a class="btn btn-link" href="{{ "/usb/" | relative_url }}" data-i18n="menu-usb">USB Files</a>
+  </section>
+  <section class="navbar-section">
+    <div class="form-group">
+       <select class="form-select" id="lang">
+           <option value="en">English</option>
+           <option value="es">Spanish</option>
+<!--            <option value="fr">French</option> -->
+       </select>
+    </div>
+  </section>  
+</header>
