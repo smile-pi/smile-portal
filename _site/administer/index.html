@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Administer</title>
+  <meta name="description" content="SMILE-pi Portal is the place to manage the SMILEplug and Launch Applications.">
+
+  <link rel="canonical" href="/administer/">
+  <link rel="stylesheet" href="/assets/css/spectre.min.css"/>
+  <link rel="stylesheet" href="/assets/css/spectre-icons.min.css"/>
+  <script src="/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="/assets/js/jquery.i18n.js"></script>
+	<script src="/assets/js/jquery.i18n.messagestore.js"></script>
+	<script src="/assets/js/jquery.i18n.fallbacks.js"></script>
+	<script src="/assets/js/jquery.i18n.parser.js"></script>
+	<script src="/assets/js/jquery.i18n.emitter.js"></script>
+	<script src="/assets/js/jquery.i18n.language.js"></script> 
+	<script src="/assets/js/masonry.pkgd.min.js"></script> 
+	<style type="text/css">
+  	.grid-item { width: 310px; }
+  	.card { margin: 5px 5px 5px 5px;}
+  </style>
+</head>
+
+
+  <body class="container grid-lg">
+
+    <header class="navbar">
+  <section class="navbar-section">
+    <a class="site-title" href="/">SMILE-pi Portal</a>
+  <section class="navbar-section">
+          <a class="btn btn-link" href="/"><i class="icon icon-apps"></i> <span data-i18n="menu-applications">Applications</span></a>
+          <a class="btn btn-link" href="/about/" data-i18n="menu-about">About</a>
+          <a class="btn btn-link" href="/administer/" data-i18n="menu-administer">Administer</a>
+          <a class="btn btn-link" href="/analytics/" data-i18n="menu-analytics">Analytics</a>
+          <a class="btn btn-link" href="/usb/" data-i18n="menu-usb">USB Files</a>
+  </section>
+  <section class="navbar-section">
+    <div class="form-group">
+       <select class="form-select" id="lang">
+           <option value="en">English</option>
+           <option value="es">Spanish</option>
+<!--            <option value="fr">French</option> -->
+       </select>
+    </div>
+  </section>  
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="container">
+            <h1 class="text-primary" data-i18n="administer-title">Administer</h1>
+<h2 class="text-gray" data-i18n="administer-connect-devices">Connect devices to SMILE Plug</h2>
+
+<p><span data-i18n="administer-connect-1">To connect over WiFi, join</span> <strong>SMILE_<span id="wifi-mac">####</span></strong> <span data-i18n="administer-connect-2">and point your browser to</span> <strong>start.here</strong> or <strong>192.168.12.1</strong></p>
+
+<p><span data-i18n="administer-connect-3">To connect over Ethernet, point your browser to</span> <strong><span id="ethernet-ip">###.###.###.###</span></strong></p>
+
+<h2 class="text-gray" data-i18n="administer-turn-off">Turn off SMILE Plug</h2>
+
+<p data-i18n="administer-finished">Finished? Power off the SMILE Plug.</p>
+<a class="btn" id="plug-power-off"><i class="icon icon-shutdown"></i> <span data-i18n="administer-power-off-button-text">Power off</span></a>
+
+<div class="clearfix"></div>
+
+<br/>
+<h2 class="text-gray" data-i18n="administer-sync-date">Sync System Date</h2>
+
+<p><strong data-i18n="administer-client-date">Client Date:</strong> <span id="client_time"></span></p>
+<p><strong data-i18n="administer-server-date">Server Date:</strong> <span id="server_time"></span></p>
+
+<h2 class="text-gray" data-i18n="administer-export">Export all Data to file.</h2>
+<a class="btn" id="couchdb-export"><i class="icon icon-share"></i> <span data-i18n="administer-export-button-text">Export</span></a>
+
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+</footer>
+    
+<script type="text/javascript">  
+  $ (document).ready(function(){
+  jQuery.post( "/smileService/usage", { who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the administer page" } );
+  
+    // get ethernet IP if available
+  jQuery.get("/assets/scripts/get-eth0ip.php", function(data) {
+      if (data) {
+        $("#ethernet-ip").text(data.trim());
+      };      
+  });
+
+  // get wifi mac if possible
+  jQuery.get("/assets/scripts/get-wifimac.php", function(data) {
+      if (data) {
+        $("#wifi-mac").text(data.trim());
+      };   
+  });
+  
+  function isTeacher(e) {
+    var userName = localStorage.getItem("who");
+    
+    if (userName && userName.toLowerCase().includes('teacher') === true) {
+      return true; 
+    }
+    return false;
+  };
+
+  function powerOff(e) {
+    // check for teacher
+    var proceed = isTeacher();
+    var userName = (localStorage.getItem("who")) ? localStorage.getItem("who") : 'blank';
+  
+    if (proceed) {
+      // make the post to turn off plug
+      jQuery.post("/assets/scripts/service-goodnight.php");
+    } else {
+      window.alert('You must be a teacher to perform this task. If you are a teacher, add the word teacher to your name, which is currently ' + userName + '.');
+    }
+    return this;
+  };
+  
+  $("#plug-power-off").on('click', function(e){
+    powerOff();
+  });
+});
+
+// https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+function srvTime(){
+  return $.ajax({async: false}).getResponseHeader( 'Date' ); 
+};
+
+var st = srvTime();
+var serverTime = new Date(st);
+var localTime = new Date();
+$('#client_time').html(localTime);
+$('#server_time').html(serverTime);
+
+//https://stackoverflow.com/a/4428396/178673
+Date.prototype.isSameDateAs = function(pDate) {
+  return (
+    this.getFullYear() === pDate.getFullYear() &&
+    this.getMonth() === pDate.getMonth() &&
+    this.getDate() === pDate.getDate()
+  );
+}
+
+if (!localTime.isSameDateAs(serverTime)) {
+  $.get("/assets/scripts/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes()); 
+  location.reload();
+};
+
+//     In the actual plug, get replace http://localhost:5984/smile with /couchdb
+$('#couchdb-export').on('click', function(){
+  var url = 'http://localhost:5984/smile/_all_docs?include_docs=true'; 
+  $.get(url,function (result)
+  {
+      var blob=new Blob([result]);
+      var link=document.createElement('a');
+      link.href=window.URL.createObjectURL(blob);
+      link.download="smile_db_dump_"+localTime.getFullYear()+""+("0" + (localTime.getMonth() + 1)).slice(-2)+""+("0" + localTime.getDate()).slice(-2)+""+localTime.getHours()+""+localTime.getMinutes()+".txt";
+      link.click();
+  
+  });      
+});
+
+
+</script>
+
+    <script type="text/javascript">
+    jQuery(function() {
+      $("#lang").val(localStorage.getItem("locale"));
+      
+      $.i18n().load( {
+        en: '/assets/i18n/en.json',
+        es: '/assets/i18n/es.json'
+      } ).done(function() {
+        var locale = localStorage.getItem("locale");
+        if (locale){ 
+          $.i18n().locale = locale;
+          $('body').i18n();
+        } else {
+          localStorage.setItem("locale", "en");
+          $.i18n().locale = "en";
+          $('body').i18n();
+        };
+      });
+      
+      $('#lang').on('change', function(e) {
+        e.preventDefault();
+        console.log(this.value);
+        localStorage.setItem("locale", this.value);
+        $.i18n().locale = localStorage.getItem("locale");
+        $('body').i18n();
+      });
+    
+    });
+    </script>     
+  </body>
+
+</html>

@@ -1,0 +1,1 @@
+<?php exec("/usr/local/bin/shutdown_php"); ?>

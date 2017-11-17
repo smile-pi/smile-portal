@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Applications</title>
+  <meta name="description" content="SMILE-pi Portal is the place to manage the SMILEplug and Launch Applications.">
+
+  <link rel="canonical" href="/">
+  <link rel="stylesheet" href="/assets/css/spectre.min.css"/>
+  <link rel="stylesheet" href="/assets/css/spectre-icons.min.css"/>
+  <script src="/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="/assets/js/jquery.i18n.js"></script>
+	<script src="/assets/js/jquery.i18n.messagestore.js"></script>
+	<script src="/assets/js/jquery.i18n.fallbacks.js"></script>
+	<script src="/assets/js/jquery.i18n.parser.js"></script>
+	<script src="/assets/js/jquery.i18n.emitter.js"></script>
+	<script src="/assets/js/jquery.i18n.language.js"></script> 
+	<script src="/assets/js/masonry.pkgd.min.js"></script> 
+	<style type="text/css">
+  	.grid-item { width: 310px; }
+  	.card { margin: 5px 5px 5px 5px;}
+  </style>
+</head>
+
+
+  <body class="container grid-lg">
+
+    <header class="navbar">
+  <section class="navbar-section">
+    <a class="site-title" href="/">SMILE-pi Portal</a>
+  <section class="navbar-section">
+          <a class="btn btn-link" href="/"><i class="icon icon-apps"></i> <span data-i18n="menu-applications">Applications</span></a>
+          <a class="btn btn-link" href="/about/" data-i18n="menu-about">About</a>
+          <a class="btn btn-link" href="/administer/" data-i18n="menu-administer">Administer</a>
+          <a class="btn btn-link" href="/analytics/" data-i18n="menu-analytics">Analytics</a>
+          <a class="btn btn-link" href="/usb/" data-i18n="menu-usb">USB Files</a>
+  </section>
+  <section class="navbar-section">
+    <div class="form-group">
+       <select class="form-select" id="lang">
+           <option value="en">English</option>
+           <option value="es">Spanish</option>
+<!--            <option value="fr">French</option> -->
+       </select>
+    </div>
+  </section>  
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="container">
+            <h1 class="text-primary" data-i18n="applications-title">Applications</h1>
+<form id="usernameForm">
+
+    <div class="form-group">
+      <h2 data-i18n="applications-enter-name">Enter your name</h2>
+      <input class="form-input smile-username" type="text" id="username" placeholder="Please type your name" value="">
+    </div>
+</form>
+<br/>
+<h2 data-i18n="applications-choose-application">Choose your application</h2>
+
+<div class="divider"></div>
+<h3 data-i18n="applications-top-applications" class="text-primary">Top Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_top/smile_grey.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="smile-title">SMILE</div>
+        <div class="card-subtitle text-gray" data-i18n="smile-subtitle">Stanford Mobile Inquiry-based Learning Environment</div>
+      </div>
+      <div class="card-body" data-i18n="smile-description">
+        SMILE flips a traditional classroom into a highly interactive learning environment by engaging learners in  critical reasoning and problem solving while enabling them to generate, share, and evaluate multimedia-rich inquiries.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="SMILE" data-app-id="smile" class="btn btn-primary resource-btn" data-i18n="smile-button-text">Make a Question</a>
+        <span id="smile" class="app_link" style="display:none;" data-i18n="smile-link">http://start.here/smile</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'smile-title': 'SMILE',
+      'smile-subtitle': 'Stanford Mobile Inquiry-based Learning Environment',
+      'smile-description': 'SMILE flips a traditional classroom into a highly interactive learning environment by engaging learners in critical reasoning and problem solving while enabling them to generate, share, and evaluate multimedia-rich inquiries.',
+      'smile-button-text': 'Make a Question',
+      'smile-link': 'http://start.here/smile'
+    },
+    es: {
+      'smile-title': 'SMILE',
+      'smile-subtitle': 'Stanford Mobile Inquiry-based Learning Environment',
+      'smile-description': 'SMILE convierte un aula tradicional en un ambiente de aprendizaje altamente interactivo. Involucra la participación de los estudiantes, su razonamiento crítico y su habilidad de resolver problemas. Les permite generar, compartir y evaluar preguntas con multimedia.',
+      'smile-button-text': 'Hacer una pregunta',
+      'smile-link': 'http://start.here/smile'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_top/wikipedia.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="wikipedia-title">Wikipedia</div>
+        <div class="card-subtitle text-gray" data-i18n="wikipedia-subtitle">Free Encyclopedia</div>
+      </div>
+      <div class="card-body" data-i18n="wikipedia-description">
+        Wikipedia. Lots of stuff to see here.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Wikipedia" data-app-id="wikipedia" class="btn btn-primary resource-btn" data-i18n="wikipedia-button-text">Explore Wikipedia</a>
+        <span id="wikipedia" class="app_link" style="display:none;" data-i18n="wikipedia-link">http://start.here:8001</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'wikipedia-title': 'Wikipedia',
+      'wikipedia-subtitle': 'The Free Encyclopedia',
+      'wikipedia-description': 'Wikipedia is the free encyclopedia that anyone can use!',
+      'wikipedia-button-text': 'Explore Wikipedia',
+      'wikipedia-link': 'http://start.here:8001'
+    },
+    es: {
+      'wikipedia-title': 'Wikipedia',
+      'wikipedia-subtitle': 'La enciclopedia libre',
+      'wikipedia-description': 'Wikipedia es una enciclopedia libre, editada colaborativamente.',
+      'wikipedia-button-text': 'Explorar Wikipedia',
+      'wikipedia-link': 'http://start.here:8001'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_top/khan_academy.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="kalite-title">KA-Lite</div>
+        <div class="card-subtitle text-gray" data-i18n="kalite-subtitle">Khan Academy Lite</div>
+      </div>
+      <div class="card-body" data-i18n="kalite-description">
+        Khan Academy offers videos and practice exercises for a range of subjects.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="KA-Lite" data-app-id="kalite" class="btn btn-primary resource-btn" data-i18n="kalite-button-text">Challenge Yourself</a>
+        <span id="kalite" class="app_link" style="display:none;" data-i18n="kalite-link">http://start.here:8008</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'kalite-title': 'KA-Lite',
+      'kalite-subtitle': 'Khan Academy Lite',
+      'kalite-description': 'Khan Academy offers videos and practice exercises for a range of subjects.',
+      'kalite-button-text': 'Challenge Yourself',
+      'kalite-link': 'http://start.here:8008'
+    },
+    es: {
+      'kalite-title': 'KA-Lite',
+      'kalite-subtitle': 'Khan Academy Lite',
+      'kalite-description': 'KA Lite permite oportunidades de aprendizaje semipresencial utilizando los ejercicios de matemáticas de Khan Academy.',
+      'kalite-button-text': 'Retarte a ti mismo',
+      'kalite-link': 'http://start.here:8008'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-literacy-applications">Literacy Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/african_storybook.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="african_storybook-title">African Storybooks</div>
+        <div class="card-subtitle text-gray" data-i18n="african_storybook-subtitle">...</div>
+      </div>
+      <div class="card-body" data-i18n="african_storybook-description">
+        A collection of illustrated children's stories from many African cultures.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="African Storybooks" data-app-id="african_storybook" class="btn btn-primary resource-btn" data-i18n="african_storybook-button-text">Read Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="african_storybook-link">http://start.here/african_storybook</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'african_storybook-title': 'African Storybooks',
+      'african_storybook-subtitle': '...',
+      'african_storybook-description': 'A collection of illustrated children\'s stories from many African cultures.',
+      'african_storybook-button-text': 'Read Stories',
+      'african_storybook-link': 'http://start.here/african_storybook'
+    },
+    es: {
+      'african_storybook-title': 'African Storybooks',
+      'african_storybook-subtitle': '...',
+      'african_storybook-description': 'A collection of illustrated children\'s stories from many African cultures.',
+      'african_storybook-button-text': 'Read Stories',
+      'african_storybook-link': 'http://start.here/african_storybook'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/fantastic_phonics.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="fantastic_phonics-title">Fantastic Phonics</div>
+        <div class="card-subtitle text-gray" data-i18n="fantastic_phonics-subtitle">Learn to read!</div>
+      </div>
+      <div class="card-body" data-i18n="fantastic_phonics-description">
+        Fantastic Phonics is a complete 16-week intensive reading scheme for schools and families, with 60 printable stories, multimedia and video.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Fantastic Phonics" data-app-id="fantastic_phonics" class="btn btn-primary resource-btn" data-i18n="fantastic_phonics-button-text">Learn and Practice Reading</a>
+        <span class="app_link" style="display:none;" data-i18n="fantastic_phonics-link">http://start.here/fantastic_phonics</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'fantastic_phonics-title': 'Fantastic Phonics',
+      'fantastic_phonics-subtitle': 'Learn to read!',
+      'fantastic_phonics-description': 'Fantastic Phonics is a complete 16-week intensive reading scheme for schools and families, with 60 printable stories, multimedia and video.',
+      'fantastic_phonics-button-text': 'Learn and Practice Reading',
+      'fantastic_phonics-link': 'http://start.here/fantastic_phonics'
+    },
+    es: {
+      'fantastic_phonics-title': 'Fantastic Phonics',
+      'fantastic_phonics-subtitle': 'Learn to read!',
+      'fantastic_phonics-description': 'Fantastic Phonics is a complete 16-week intensive reading scheme for schools and families, with 60 printable stories, multimedia and video.',
+      'fantastic_phonics-button-text': 'Learn and Practice Reading',
+      'fantastic_phonics-link': 'http://start.here/fantastic_phonics'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/cat_and_dog_fun_books.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="cat_and_dog_fun_books-title">Cat & Dog</div>
+        <div class="card-subtitle text-gray" data-i18n="cat_and_dog_fun_books-subtitle">Fun early reading books.</div>
+      </div>
+      <div class="card-body" data-i18n="cat_and_dog_fun_books-description">
+        Fun books about a cat and a dog that encourage young readers!
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Cat & Dog" data-app-id="cat_and_dog_fun_books" class="btn btn-primary resource-btn" data-i18n="cat_and_dog_fun_books-button-text">Read Fun Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="cat_and_dog_fun_books-link">http://start.here/cat_and_dog_fun_books</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'cat_and_dog_fun_books-title': 'Cat & Dog',
+      'cat_and_dog_fun_books-subtitle': 'Fun early reading books.',
+      'cat_and_dog_fun_books-description': 'Fun books about a cat and a dog that encourage young readers!',
+      'cat_and_dog_fun_books-button-text': 'Read Fun Stories',
+      'cat_and_dog_fun_books-link': 'http://start.here/cat_and_dog_fun_books'
+    },
+    es: {
+      'cat_and_dog_fun_books-title': 'Cat & Dog',
+      'cat_and_dog_fun_books-subtitle': 'Fun early reading books.',
+      'cat_and_dog_fun_books-description': 'Fun books about a cat and a dog that encourage young readers!',
+      'cat_and_dog_fun_books-button-text': 'Read Fun Stories',
+      'cat_and_dog_fun_books-link': 'http://start.here/cat_and_dog_fun_books'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/soe-bookshelf.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="soe-bookshelf-title">1001 Stories Project</div>
+        <div class="card-subtitle text-gray" data-i18n="soe-bookshelf-subtitle">From Seeds of Empowerment</div>
+      </div>
+      <div class="card-body" data-i18n="soe-bookshelf-description">
+        Children love to tell stories. However, in many places in the world, their creative voices are rarely heard or cultivated. The 1001 Stories Program conducts storytelling workshops that build on children's natural potential to become original storytellers.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="1001 Stories Project" data-app-id="soe-bookshelf" class="btn btn-primary resource-btn" data-i18n="soe-bookshelf-button-text">Read Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="soe-bookshelf-link">http://start.here/soe-bookshelf</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'soe-bookshelf-title': '1001 Stories Project',
+      'soe-bookshelf-subtitle': 'From Seeds of Empowerment',
+      'soe-bookshelf-description': 'Children love to tell stories. However, in many places in the world, their creative voices are rarely heard or cultivated. The 1001 Stories Program conducts storytelling workshops that build on children\'s natural potential to become original storytellers.',
+      'soe-bookshelf-button-text': 'Read Stories',
+      'soe-bookshelf-link': 'http://start.here/soe-bookshelf'
+    },
+    es: {
+      '1001_stories-title': '1001 Stories Project',
+      '1001_stories-subtitle': 'subtitle',
+      '1001_stories-description': 'Description',
+      '1001_stories-button-text': 'Read Stories',
+      '1001_stories-link': 'http://start.here/application_name'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/childrens-books.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="childrens_books-title">Children's Books</div>
+        <div class="card-subtitle text-gray" data-i18n="childrens_books-subtitle">Colorful Children's Books</div>
+      </div>
+      <div class="card-body" data-i18n="childrens_books-description">
+        A selection of books for children from Project Gutenberg in PDF format.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Children's Books" data-app-id="childrens_books" class="btn btn-primary resource-btn" data-i18n="childrens_books-button-text">Read Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="childrens_books-link">http://start.here/childrens-books</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'childrens_books-title': 'Children\'s Books',
+      'childrens_books-subtitle': 'Colorful Children\'s Books',
+      'childrens_books-description': 'A selection of books for children from Project Gutenberg in PDF format.',
+      'childrens_books-button-text': 'Read Stories',
+      'childrens_books-link': 'http://start.here/childrens-books'
+    },
+    es: {
+      'childrens_books-title': 'Children\'s Books',
+      'childrens_books-subtitle': 'Colorful Children\'s Books',
+      'childrens_books-description': 'A selection of books for children from Project Gutenberg in PDF format.',
+      'childrens_books-button-text': 'Read Stories',
+      'childrens_books-link': 'http://start.here/childrens-books'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_literacy/gutenberg.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="gutenberg-title">Project Gutenberg</div>
+        <div class="card-subtitle text-gray" data-i18n="gutenberg-subtitle">A large selection of public domain books.</div>
+      </div>
+      <div class="card-body" data-i18n="gutenberg-description">
+        Thousands of books in digital format (text) from Project Gutenberg. Organized by bookshelves.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Project Gutenberg" data-app-id="gutenberg" class="btn btn-primary resource-btn" data-i18n="gutenberg-button-text">Read Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="gutenberg-link">http://start.here/gutenberg</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'gutenberg-title': 'Project Gutenberg',
+      'gutenberg-subtitle': 'A large selection of public domain books.',
+      'gutenberg-description': 'Thousands of books in digital format (text) from Project Gutenberg. Organized by bookshelves.',
+      'gutenberg-button-text': 'Read Stories',
+      'gutenberg-link': 'http://start.here/gutenberg'
+    },
+    es: {
+      'gutenberg-title': 'Project Gutenberg',
+      'gutenberg-subtitle': 'A large selection of public domain books.',
+      'gutenberg-description': 'Thousands of books in digital format (text) from Project Gutenberg. Organized by bookshelves.',
+      'gutenberg-button-text': 'Read Stories',
+      'gutenberg-link': 'http://start.here/gutenberg'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-coding-applications">Coding Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_coding/blockly-games-logo.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="blockly_games-title">Blockly Games</div>
+        <div class="card-subtitle text-gray" data-i18n="blockly_games-subtitle">Block-based Programming Tutorial</div>
+      </div>
+      <div class="card-body" data-i18n="blockly_games-description">
+        Blockly Games is a series of educational games that teach programming. It is designed for children who have not had prior experience with computer programming. By the end of these games, players are ready to use conventional text-based languages.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Blockly Games" data-app-id="blockly_games" class="btn btn-primary resource-btn" data-i18n="blockly_games-button-text">Learn to Program</a>
+        <span class="app_link" style="display:none;" data-i18n="blockly_games-link">http://start.here/blockly-games-en/en/index.html</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'blockly_games-title': 'Blockly Games',
+      'blockly_games-subtitle': 'Block-based Programming Tutorial',
+      'blockly_games-description': 'Blockly Games is a series of educational games that teach programming. It is designed for children who have not had prior experience with computer programming. By the end of these games, players are ready to use conventional text-based languages.',
+      'blockly_games-button-text': 'Learn to Program',
+      'blockly_games-link': 'http://start.here/blockly-games-en/en/index.html'
+    },
+    es: {
+      'blockly_games-title': 'Blockly Games',
+      'blockly_games-subtitle': 'Block-based Programming Tutorial',
+      'blockly_games-description': 'Juegos para los programadores del futuro.',
+      'blockly_games-button-text': 'Learn to Program',
+      'blockly_games-link': 'http://start.here/blockly-games-en/en/index.html'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_coding/snap-byob.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="snap-title">Snap!</div>
+        <div class="card-subtitle text-gray" data-i18n="snap-subtitle">Block-based Programming</div>
+      </div>
+      <div class="card-body" data-i18n="snap-description">
+        Snap! is a visual, drag-and-drop programming language. It is an extended reimplementation of Scratch (a project of the Lifelong Kindergarten Group at MIT Media Lab). Capabilities like first class lists, first class procedures and continuations make it a suitable serious introduction to computer science.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Snap!" data-app-id="snap" class="btn btn-primary resource-btn" data-i18n="snap-button-text">Learn Programming</a>
+        <span class="app_link" style="display:none;" data-i18n="snap-link">http://start.here/snap/snap.html</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'snap-title': 'Snap!',
+      'snap-subtitle': 'Block-based Programming',
+      'snap-description': 'Snap! is a visual, drag-and-drop programming language. It is an extended reimplementation of Scratch (a project of the Lifelong Kindergarten Group at MIT Media Lab). Capabilities like first class lists, first class procedures and continuations make it a suitable serious introduction to computer science.',
+      'snap-button-text': 'Learn Programming',
+      'snap-link': 'http://start.here/snap/snap.html'
+    },
+    es: {
+      'snap-title': 'Snap!',
+      'snap-subtitle': 'Block-based Programming',
+      'snap-description': 'Snap! es una aplicación dey un lenguaje de programación visual.',
+      'snap-button-text': 'Learn Programming',
+      'snap-link': 'http://start.here/snap/snap.html'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_coding/turtle-academy.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="turtle-academy-title">Turtle Academy</div>
+        <div class="card-subtitle text-gray" data-i18n="turtle-academy-subtitle">Introduction to LOGO Programming</div>
+      </div>
+      <div class="card-body" data-i18n="turtle-academy-description">
+        The easy way to learn programming! Turtle Academy makes is surprisingly easy to start creating amazing shapes using the LOGO language.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Turtle Academy" data-app-id="turtle-academy" class="btn btn-primary resource-btn" data-i18n="turtle-academy-button-text">Learn Programming</a>
+        <span class="app_link" style="display:none;" data-i18n="turtle-academy-link">http://start.here/turtle-academy/site/learn.php.html</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'turtle-academy-title': 'Turtle Academy',
+      'turtle-academy-subtitle': 'Introduction to LOGO Programming',
+      'turtle-academy-description': 'The easy way to learn programming! Turtle Academy makes is surprisingly easy to start creating amazing shapes using the LOGO language.',
+      'turtle-academy-button-text': 'Learn Programming',
+      'turtle-academy-link': 'http://start.here/turtle-academy/site/learn.php.html'
+    },
+    es: {
+      'turtle-academy-title': 'Turtle Academy',
+      'turtle-academy-subtitle': 'Introduction to LOGO Programming',
+      'turtle-academy-description': 'The easy way to learn programming! Turtle Academy makes is surprisingly easy to start creating amazing shapes using the LOGO language.',
+      'turtle-academy-button-text': 'Learn Programming',
+      'turtle-academy-link': 'http://start.here/turtle-academy/site/learn.php.html'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_coding/code-monster.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="code-monster-title">Code Monster</div>
+        <div class="card-subtitle text-gray" data-i18n="code-monster-subtitle">Introduction to Javascript from a funny character.</div>
+      </div>
+      <div class="card-body" data-i18n="code-monster-description">
+        Code Monster gets kids excited about programming. It is a combination of a game and tutorial where kids experiment with learning to code.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Code Monster" data-app-id="code-monster" class="btn btn-primary resource-btn" data-i18n="code-monster-button-text">Learn Javascript</a>
+        <span class="app_link" style="display:none;" data-i18n="code-monster-link">http://start.here/code_monster/</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'code-monster-title': 'Code Monster',
+      'code-monster-subtitle': 'Introduction to Javascript from a funny character.',
+      'code-monster-description': 'Code Monster gets kids excited about programming. It is a combination of a game and tutorial where kids experiment with learning to code.',
+      'code-monster-button-text': 'Learn Javascript',
+      'code-monster-link': 'http://start.here/code_monster/'
+    },
+    es: {
+      'code-monster-title': 'Code Monster',
+      'code-monster-subtitle': 'Introduction to Javascript from a funny character.',
+      'code-monster-description': 'Code Monster gets kids excited about programming. It is a combination of a game and tutorial where kids experiment with learning to code.',
+      'code-monster-button-text': 'Learn Javascript',
+      'code-monster-link': 'http://start.here/code_monster/'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_coding/logo_programming.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="jslogo-title">LOGO Programming Environment</div>
+        <div class="card-subtitle text-gray" data-i18n="jslogo-subtitle">LOGO Interpreter</div>
+      </div>
+      <div class="card-body" data-i18n="jslogo-description">
+        LOGO is an educational programming language, designed in 1967 by Wally Feurzeig, Seymour Papert and Cynthia Solomon.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="LOGO Programming Environment" data-app-id="jslogo" class="btn btn-primary resource-btn" data-i18n="jslogo-button-text">Learn LOGO</a>
+        <span class="app_link" style="display:none;" data-i18n="jslogo-link">http://start.here/jslogo</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'jslogo-title': 'LOGO Programming Environment',
+      'jslogo-subtitle': 'LOGO Interpreter',
+      'jslogo-description': 'LOGO is an educational programming language, designed in 1967 by Wally Feurzeig, Seymour Papert and Cynthia Solomon.',
+      'jslogo-button-text': 'Learn LOGO',
+      'jslogo-link': 'http://start.here/jslogo'
+    },
+    es: {
+      'jslogo-title': 'LOGO Programming Environment',
+      'jslogo-subtitle': 'LOGO Interpreter',
+      'jslogo-description': 'LOGO is an educational programming language, designed in 1967 by Wally Feurzeig, Seymour Papert and Cynthia Solomon.',
+      'jslogo-button-text': 'Learn LOGO',
+      'jslogo-link': 'http://start.here/jslogo'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-digital_skills-applications">Digital Skill Building</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_digital_skills/open10fingers-typing.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="open10fingers-title">Typing Practice</div>
+        <div class="card-subtitle text-gray" data-i18n="open10fingers-subtitle">A Typing Tutor</div>
+      </div>
+      <div class="card-body" data-i18n="open10fingers-description">
+        If you are on a laptop or desktop computer, use this program to practice your typing skills!
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Typing Practice" data-app-id="open10fingers" class="btn btn-primary resource-btn" data-i18n="open10fingers-button-text">Practice Typing</a>
+        <span class="app_link" style="display:none;" data-i18n="open10fingers-link">http://start.here/open10fingers</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'open10fingers-title': 'Typing Practice',
+      'open10fingers-subtitle': 'A Typing Tutor',
+      'open10fingers-description': 'If you are on a laptop or desktop computer, use this program to practice your typing skills!',
+      'open10fingers-button-text': 'Practice Typing',
+      'open10fingers-link': 'http://start.here/open10fingers'
+    },
+    es: {
+      'open10fingers-title': 'Typing Practice',
+      'open10fingers-subtitle': 'A Typing Tutor',
+      'open10fingers-description': 'Aprender y practicar habilidades con el teclado utilizando un tutor de un teclado colorido.',
+      'open10fingers-button-text': 'Entrar',
+      'open10fingers-link': 'http://start.here/open10fingers'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_digital_skills/gcf_learn_free.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="gcf_learn_free-title">GCF Learn Free</div>
+        <div class="card-subtitle text-gray" data-i18n="gcf_learn_free-subtitle">Learn Technology Skills</div>
+      </div>
+      <div class="card-body" data-i18n="gcf_learn_free-description">
+        Hundreds of high-quality illustrated articles and videos focusing on technology, job training, reading, and math skills, produced by the Goodwill Community Foundation.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="GCF Learn Free" data-app-id="gcf_learn_free" class="btn btn-primary resource-btn" data-i18n="gcf_learn_free-button-text">Explore Skills</a>
+        <span class="app_link" style="display:none;" data-i18n="gcf_learn_free-link">http://start.here/gcf_learn_free</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'gcf_learn_free-title': 'GCF Learn Free',
+      'gcf_learn_free-subtitle': 'Learn Technology Skills',
+      'gcf_learn_free-description': 'Hundreds of high-quality illustrated articles and videos focusing on technology, job training, reading, and math skills, produced by the Goodwill Community Foundation.',
+      'gcf_learn_free-button-text': 'Explore Skills',
+      'gcf_learn_free-link': 'http://start.here/gcf_learn_free'
+    },
+    es: {
+      'gcf_learn_free-title': 'GCF Learn Free',
+      'gcf_learn_free-subtitle': 'Learn Technology Skills',
+      'gcf_learn_free-description': '[Inglés] Hundreds of high-quality illustrated articles and videos focusing on technology, job training, reading, and math skills, produced by the Goodwill Community Foundation.',
+      'gcf_learn_free-button-text': 'Explore Skills',
+      'gcf_learn_free-link': 'http://start.here/gcf_learn_free'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-bible-applications">Bible Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_bible/the_bible_project.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="the_bible_project-title">The Bible Project</div>
+        <div class="card-subtitle text-gray" data-i18n="the_bible_project-subtitle">Animated Videos about the Bible</div>
+      </div>
+      <div class="card-body" data-i18n="the_bible_project-description">
+        The Bible Project utilizes short-form, fully animated videos to make the biblical story accessible to everyone, everywhere.  We explore the Bible’s unified story by focusing on its overarching themes and each book’s literary design.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="The Bible Project" data-app-id="the_bible_project" class="btn btn-primary resource-btn" data-i18n="the_bible_project-button-text">Explore Bible Videos</a>
+        <span class="app_link" style="display:none;" data-i18n="the_bible_project-link">http://start.here/the_bible_project</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'the_bible_project-title': 'The Bible Project',
+      'the_bible_project-subtitle': 'Animated Videos about the Bible',
+      'the_bible_project-description': 'The Bible Project utilizes short-form, fully animated videos to make the biblical story accessible to everyone, everywhere. We explore the Bible’s unified story by focusing on its overarching themes and each book’s literary design.',
+      'the_bible_project-button-text': 'Explore Bible Videos',
+      'the_bible_project-link': 'http://start.here/the_bible_project'
+    },
+    es: {
+      'the_bible_project-title': 'The Bible Project',
+      'the_bible_project-subtitle': 'Animated Videos about the Bible',
+      'the_bible_project-description': 'The Bible Project utilizes short-form, fully animated videos to make the biblical story accessible to everyone, everywhere. We explore the Bible’s unified story by focusing on its overarching themes and each book’s literary design.',
+      'the_bible_project-button-text': 'Explore Bible Videos',
+      'the_bible_project-link': 'http://start.here/the_bible_project'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_bible/bible-for-children.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="bible_for_children-title">Bible for Children</div>
+        <div class="card-subtitle text-gray" data-i18n="bible_for_children-subtitle">Colorful stories from the Bible</div>
+      </div>
+      <div class="card-body" data-i18n="bible_for_children-description">
+        Daily Devotional and bright, colorful stories written for children.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Bible for Children" data-app-id="bible_for_children" class="btn btn-primary resource-btn" data-i18n="bible_for_children-button-text">Read Bible Stories</a>
+        <span class="app_link" style="display:none;" data-i18n="bible_for_children-link">http://start.here/bible_for_children</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'bible_for_children-title': 'Bible for Children',
+      'bible_for_children-subtitle': 'Colorful stories from the Bible',
+      'bible_for_children-description': 'Daily Devotional and bright, colorful stories written for children.',
+      'bible_for_children-button-text': 'Read Bible Stories',
+      'bible_for_children-link': 'http://start.here/bible_for_children'
+    },
+    es: {
+      'bible_for_children-title': 'Biblia para Niños',
+      'bible_for_children-subtitle': 'Colorful stories from the Bible',
+      'bible_for_children-description': 'Historias coloridas de la Biblia.',
+      'bible_for_children-button-text': 'Entrar',
+      'bible_for_children-link': 'http://start.here/bible_for_children'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_bible/web-bible.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="bible_web-title">World English Bible</div>
+        <div class="card-subtitle text-gray" data-i18n="bible_web-subtitle">...</div>
+      </div>
+      <div class="card-body" data-i18n="bible_web-description">
+        The World English Bible. The Holy Bible tells you what you need to know and believe to be saved from sin and evil and how to live a life that is truly worth living, no matter what your current circumstances may be.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="World English Bible" data-app-id="bible_web" class="btn btn-primary resource-btn" data-i18n="bible_web-button-text">Read the Bible</a>
+        <span class="app_link" style="display:none;" data-i18n="bible_web-link">http://start.here/bible_web</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'bible_web-title': 'World English Bible',
+      'bible_web-subtitle': '...',
+      'bible_web-description': 'The World English Bible. The Holy Bible tells you what you need to know and believe to be saved from sin and evil and how to live a life that is truly worth living, no matter what your current circumstances may be.',
+      'bible_web-button-text': 'Read the Bible',
+      'bible_web-link': 'http://start.here/bible_web'
+    },
+    es: {
+      'bible_web-title': 'World English Bible',
+      'bible_web-subtitle': '...',
+      'bible_web-description': 'The World English Bible. The Holy Bible tells you what you need to know and believe to be saved from sin and evil and how to live a life that is truly worth living, no matter what your current circumstances may be.',
+      'bible_web-button-text': 'Read the Bible',
+      'bible_web-link': 'http://start.here/bible_web'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_bible/holy-bible.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="bible_asv-title">Holy Bible (ASV)</div>
+        <div class="card-subtitle text-gray" data-i18n="bible_asv-subtitle">...</div>
+      </div>
+      <div class="card-body" data-i18n="bible_asv-description">
+        The Revised Version, Standard American Edition of the Bible, more commonly known as the American Standard Version, is a version of the Bible that was first released in 1900.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Holy Bible (ASV)" data-app-id="bible_asv" class="btn btn-primary resource-btn" data-i18n="bible_asv-button-text">Read the Bible</a>
+        <span class="app_link" style="display:none;" data-i18n="bible_asv-link">http://start.here/bible_web</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'bible_asv-title': 'Holy Bible (ASV)',
+      'bible_asv-subtitle': '...',
+      'bible_asv-description': 'The Revised Version, Standard American Edition of the Bible, more commonly known as the American Standard Version, is a version of the Bible that was first released in 1900.',
+      'bible_asv-button-text': 'Read the Bible',
+      'bible_asv-link': 'http://start.here/bible_asv'
+    },
+    es: {
+      'bible_asv-title': 'Santa Biblia',
+      'bible_asv-subtitle': '...',
+      'bible_asv-description': 'La Biblia es el relato de la acción de Dios en el mundo, y su propósito con toda la creación.',
+      'bible_asv-button-text': 'Entrar',
+      'bible_asv-link': 'http://start.here/bible_asv'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-fun-applications">Fun Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_fun/edify-draw-and-paint.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="paint-title">Edify Draw and Paint</div>
+        <div class="card-subtitle text-gray" data-i18n="paint-subtitle">Create Digital Art</div>
+      </div>
+      <div class="card-body" data-i18n="paint-description">
+        Create your own digital paintings.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Edify Draw and Paint" data-app-id="paint" class="btn btn-primary resource-btn" data-i18n="paint-button-text">Create drawings</a>
+        <span class="app_link" style="display:none;" data-i18n="paint-link">http://start.here/paint</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'paint-title': 'Edify Draw and Paint',
+      'paint-subtitle': 'Create Digital Art',
+      'paint-description': 'Create your own digital paintings.',
+      'paint-button-text': 'Create drawings',
+      'paint-link': 'http://start.here/paint'
+    },
+    es: {
+      'paint-title': 'Edify Draw and Paint',
+      'paint-subtitle': 'Create Digital Art',
+      'paint-description': 'Create your own digital paintings.',
+      'paint-button-text': 'Create drawings',
+      'paint-link': 'http://start.here/paint'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_fun/edify_music.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="edify_music-title">Edify Music</div>
+        <div class="card-subtitle text-gray" data-i18n="edify_music-subtitle">Make your own music!</div>
+      </div>
+      <div class="card-body" data-i18n="edify_music-description">
+        Learn about music notation, and make your own music!
+      </div>
+      <div class="card-footer">
+        <a data-app-title="Edify Music" data-app-id="edify_music" class="btn btn-primary resource-btn" data-i18n="edify_music-button-text">Create Music</a>
+        <span class="app_link" style="display:none;" data-i18n="edify_music-link">http://start.here/edify_music</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'edify_music-title': 'Edify Music',
+      'edify_music-subtitle': 'Make your own music!',
+      'edify_music-description': 'Learn about music notation, and make your own music!',
+      'edify_music-button-text': 'Create Music',
+      'edify_music-link': 'http://start.here/edify_music'
+    },
+    es: {
+      'edify_music-title': 'Edify Music',
+      'edify_music-subtitle': 'Make your own music!',
+      'edify_music-description': 'Learn about music notation, and make your own music!',
+      'edify_music-button-text': 'Create Music',
+      'edify_music-link': 'http://start.here/edify_music'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_fun/world_map.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="world-map-title">World Map</div>
+        <div class="card-subtitle text-gray" data-i18n="world-map-subtitle">Travel the world without leaving your chair!</div>
+      </div>
+      <div class="card-body" data-i18n="world-map-description">
+        Enjoy exploring the world beyond the horizon. This searchable, colorful world map provides a way to explore the world from your device!
+      </div>
+      <div class="card-footer">
+        <a data-app-title="World Map" data-app-id="world-map" class="btn btn-primary resource-btn" data-i18n="world-map-button-text">Explore the Globe</a>
+        <span class="app_link" style="display:none;" data-i18n="world-map-link">http://start.here/world-map</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'world-map-title': 'World Map',
+      'world-map-subtitle': 'Travel the world without leaving your chair!',
+      'world-map-description': 'Enjoy exploring the world beyond the horizon. This searchable, colorful world map provides a way to explore the world from your device!',
+      'world-map-button-text': 'Explore the Globe',
+      'world-map-link': 'http://start.here/world-map'
+    },
+    es: {
+      'world-map-title': 'World Map',
+      'world-map-subtitle': 'Travel the world without leaving your chair!',
+      'world-map-description': 'Enjoy exploring the world beyond the horizon. This searchable, colorful world map provides a way to explore the world from your device!',
+      'world-map-button-text': 'Explore the Globe',
+      'world-map-link': 'http://start.here/world-map'    
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+<div class="divider"></div>
+<h3 data-i18n="applications-other-applications">Other Applications</h3>
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_other/PhET-interactive-simulations.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="simulations-title">PhET Interactive Simulations</div>
+        <div class="card-subtitle text-gray" data-i18n="simulations-subtitle">Discover through simulation</div>
+      </div>
+      <div class="card-body" data-i18n="simulations-description">
+        Free educational simulations covering a diverse selection of topics designed by the University of Colorado
+      </div>
+      <div class="card-footer">
+        <a data-app-title="PhET Interactive Simulations" data-app-id="simulations" class="btn btn-primary resource-btn" data-i18n="simulations-button-text">Learn Science</a>
+        <span class="app_link" style="display:none;" data-i18n="simulations-link">http://start.here/simulations</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'simulations-title': 'PhET Interactive Simulations',
+      'simulations-subtitle': 'Discover through simulation',
+      'simulations-description': 'Free educational simulations covering a diverse selection of topics designed by the University of Colorado.',
+      'simulations-button-text': 'Learn Science',
+      'simulations-link': 'http://start.here/simulations'
+    },
+    es: {
+      'simulations-title': 'PhET Interactive Simulations',
+      'simulations-subtitle': 'Discover through simulation',
+      'simulations-description': 'Simulaciones educativos que cubren una variadad de materias diseñadas por la Universidad de Colorado.',
+      'simulations-button-text': 'Entrar',
+      'simulations-link': 'http://start.here/simulations'
+    }
+  });
+</script>
+
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="/assets/img/applications_other/ck12.png" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="ck12-title">CK-12</div>
+        <div class="card-subtitle text-gray" data-i18n="ck12-subtitle">An assortment of textbooks.</div>
+      </div>
+      <div class="card-body" data-i18n="ck12-description">
+        High quality and curated Textbooks collection on STEM (Science, Technology, Engineering and Math) from ck12.org. PDF format.
+      </div>
+      <div class="card-footer">
+        <a data-app-title="CK-12" data-app-id="ck12" class="btn btn-primary resource-btn" data-i18n="ck12-button-text">Open Textbooks</a>
+        <span class="app_link" style="display:none;" data-i18n="ck12-link">http://start.here/ck12</span>
+      </div>
+    </div>  
+  </div>
+  <script type="text/javascript">
+  $.i18n().load( {
+    en: {
+      'ck12-title': 'CK-12',
+      'ck12-subtitle': 'An assortment of textbooks.',
+      'ck12-description': 'High quality and curated Textbooks collection on STEM (Science, Technology, Engineering and Math) from ck12.org. PDF format.',
+      'ck12-button-text': 'Open Textbooks',
+      'ck12-link': 'http://start.here/ck12'
+    },
+    es: {
+      'ck12-title': 'CK-12',
+      'ck12-subtitle': 'An assortment of textbooks.',
+      'ck12-description': '[Inglés] High quality and curated Textbooks collection on STEM (Science, Technology, Engineering and Math) from ck12.org. PDF format.',
+      'ck12-button-text': 'Open Textbooks',
+      'ck12-link': 'http://start.here/ck12'
+    }
+  });
+</script>
+
+</div> <!-- .columns -->
+
+
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+</footer>
+    
+<script type="text/javascript">      
+  $( document ).ready( function() {
+  var savedUser = localStorage.getItem("who");
+  if (savedUser) { $("#username").attr('value', savedUser); };  
+});
+
+//     In the actual plug, get replace http://localhost:5984/smile with /couchdb
+// Generate UUID
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+};   
+
+var uuid = localStorage.getItem("who_uuid");
+if (!uuid) {
+  localStorage.setItem("who_uuid", uuidv4());
+};
+
+$("#username").keyup(function changeName(event) {
+  localStorage.setItem("who", event.target.value);
+}); 
+
+$('.resource-btn').on('click', function(ev) {
+  console.log(ev);
+  
+  // get app ID and title
+  var id = ev.currentTarget.getAttribute("data-app-id");
+  var title = ev.currentTarget.getAttribute("data-app-title");
+
+  // check to see if username exists
+  if ( !$("input#username").val() ) {
+    window.alert('Please enter your name first!');
+    $('input#username').focus();
+    $('input#username').css('border', '1px solid #8c1515');
+    return false;
+  };
+  
+  // post to the database that the user opened the app.
+  console.log({who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the " + id + " app"});
+  $.ajax({
+    type:"POST",
+    url: "http://localhost:8888/smileService/usage", 
+    data: { who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the " + id + " app" }
+  });
+  if ($(this).next("span.app_link").attr('id') === "smile") {
+    var smileUsername = localStorage.getItem("who");
+    var smileUUID = localStorage.getItem("who_uuid");
+    var smileLink = "http://start.here/smileService/auth/lti?user=" + smileUsername + "&UUID=" + smileUUID;
+    window.open(smileLink);
+  } else {
+    window.open($(this).next("span.app_link").text());
+  }
+});
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 310
+});
+</script>
+
+    <script type="text/javascript">
+    jQuery(function() {
+      $("#lang").val(localStorage.getItem("locale"));
+      
+      $.i18n().load( {
+        en: '/assets/i18n/en.json',
+        es: '/assets/i18n/es.json'
+      } ).done(function() {
+        var locale = localStorage.getItem("locale");
+        if (locale){ 
+          $.i18n().locale = locale;
+          $('body').i18n();
+        } else {
+          localStorage.setItem("locale", "en");
+          $.i18n().locale = "en";
+          $('body').i18n();
+        };
+      });
+      
+      $('#lang').on('change', function(e) {
+        e.preventDefault();
+        console.log(this.value);
+        localStorage.setItem("locale", this.value);
+        $.i18n().locale = localStorage.getItem("locale");
+        $('body').i18n();
+      });
+    
+    });
+    </script>     
+  </body>
+
+</html>
