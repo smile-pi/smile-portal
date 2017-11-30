@@ -1,5 +1,5 @@
 <?php
-    if (isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day']) && isset($_GET['hour']) && isset($_GET['minute']) {
+    if (isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day']) && isset($_GET['hour']) && isset($_GET['minute'])) {
       $year = $_GET['year'];
       echo $year;
       $month = $_GET['month'];
@@ -16,7 +16,8 @@
         echo "success";
       }
       echo $datetime;        
-    } else {
+    }else{
       echo "datetime URL parameters required";
     }
 ?>
+

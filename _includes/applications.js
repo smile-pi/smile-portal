@@ -19,6 +19,7 @@ if (!uuid) {
 
 $("#username").keyup(function changeName(event) {
   localStorage.setItem("who", event.target.value);
+  $("#registered_username").val(event.target.value);
 }); 
 
 $('.resource-btn').on('click', function(ev) {
