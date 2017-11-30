@@ -9,7 +9,7 @@
   <title>Applications</title>
   <meta name="description" content="SMILE-pi Portal is the place to manage the SMILEplug and Launch Applications.">
 
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="http://localhost:4000/">
   <link rel="stylesheet" href="/assets/css/spectre.min.css"/>
   <link rel="stylesheet" href="/assets/css/spectre-icons.min.css"/>
   <script src="/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -59,6 +59,8 @@
     <div class="form-group">
       <h2 data-i18n="applications-enter-name">Enter your name</h2>
       <input class="form-input smile-username" type="text" id="username" placeholder="Please type your name" value="">
+      <br/>
+      <div id="registered_username"></div>
     </div>
 </form>
 <br/>
@@ -74,7 +76,7 @@
         <img src="/assets/img/applications_top/smile_grey.png" class="img-responsive centered"/>
       </div>
       <div class="card-header">
-        <div class="card-title h5" data-i18n="smile-title">SMILE</div>
+        <div class="card-title h5" data-i18n="...">SMILE</div>
         <div class="card-subtitle text-gray" data-i18n="smile-subtitle">Stanford Mobile Inquiry-based Learning Environment</div>
       </div>
       <div class="card-body" data-i18n="smile-description">
@@ -1073,6 +1075,7 @@ if (!uuid) {
 
 $("#username").keyup(function changeName(event) {
   localStorage.setItem("who", event.target.value);
+  $("#registered_username").val(event.target.value);
 }); 
 
 $('.resource-btn').on('click', function(ev) {
