@@ -15,9 +15,8 @@
       if ($datetime) {
         echo "success";
       }
-      echo $datetime;        
-    }else{
+      echo $datetime;
+    } else {
       echo "datetime URL parameters required";
     }
 ?>
-
