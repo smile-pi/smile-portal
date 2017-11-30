@@ -4,25 +4,11 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* This repository is for a multi-lingual portal page for the SMILE-pi project (www.smile-pi.org)
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
 Needs Jekyll (www.jekyllrb.com)
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
 
