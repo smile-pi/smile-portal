@@ -1,0 +1,64 @@
+<html>
+<head>
+<script src="/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<p><strong>Client Time:</strong> <span id="client_time"></span></p>
+<p><strong>Server Time:</strong> <span id="server_time"></span></p>
+
+<script type="text/javascript">
+  // https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+  var xmlHttp;
+  function srvTime(){
+      try {
+          //FF, Opera, Safari, Chrome
+          xmlHttp = new XMLHttpRequest();
+      }
+      catch (err1) {
+          //IE
+          try {
+              xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+          }
+          catch (err2) {
+              try {
+                  xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+              }
+              catch (err3) {
+                  //AJAX not supported, use CPU time.
+                  alert("AJAX not supported");
+              }
+          }
+      }
+      xmlHttp.open('HEAD',window.location.href.toString(),false);
+      xmlHttp.setRequestHeader("Content-Type", "text/html");
+      xmlHttp.send('');
+      return xmlHttp.getResponseHeader("Date");
+  }
+
+  var st = srvTime();
+  var serverTime = new Date(st);
+  var localTime = new Date();
+  $('#client_time').html(localTime);
+  $('#server_time').html(serverTime);
+
+  //https://stackoverflow.com/a/4428396/178673
+  Date.prototype.isSameDateAs = function(pDate) {
+    return (
+      this.getFullYear() === pDate.getFullYear() &&
+      this.getMonth() === pDate.getMonth() &&
+      this.getDate() === pDate.getDate()
+    );
+  }
+
+  if (!localTime.isSameDateAs(serverTime)) {
+    console.log("Dates are not the same!");
+    $.get("/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes());
+    location.reload();
+  } else {
+    console.log("Dates are the same!");
+  };
+
+</script>
+
+</body>
+</html>

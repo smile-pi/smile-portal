@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <title>Administer</title>
   <meta name="description" content="SMILE-pi Portal is the place to manage the SMILEplug and Launch Applications.">
 
@@ -61,20 +61,22 @@
 <p><span data-i18n="administer-connect-3">To connect over Ethernet, point your browser to</span> <strong><span id="ethernet-ip">###.###.###.###</span></strong></p>
 
 <h2 class="text-gray" data-i18n="administer-turn-off">Turn off SMILE Plug</h2>
-
 <p data-i18n="administer-finished">Finished? Power off the SMILE Plug.</p>
 <a class="btn" id="plug-power-off"><i class="icon icon-shutdown"></i> <span data-i18n="administer-power-off-button-text">Power off</span></a>
-
 <div class="clearfix"></div>
-
 <br/>
-<h2 class="text-gray" data-i18n="administer-sync-date">Sync System Date</h2>
 
+<h2 class="text-gray" data-i18n="administer-sync-date">Sync System Date</h2>
 <p><strong data-i18n="administer-client-date">Client Date:</strong> <span id="client_time"></span></p>
 <p><strong data-i18n="administer-server-date">Server Date:</strong> <span id="server_time"></span></p>
+<a class="btn" id="sync-system-date"><i class="icon icon-time"></i> <span data-i18n="administer-sync-system-date-button-text">Sync System Date</span></a>
+<div class="clearfix"></div>
+<br/>
 
 <h2 class="text-gray" data-i18n="administer-export">Export all Data to file.</h2>
 <a class="btn" id="couchdb-export"><i class="icon icon-share"></i> <span data-i18n="administer-export-button-text">Export</span></a>
+<div class="clearfix"></div>
+<br/>
 
 
       </div>
@@ -127,35 +129,15 @@
   $("#plug-power-off").on('click', function(e){
     powerOff();
   });
+
+  $("#sync-system-date").on('click', function(e){
+    syncSystemDate();
+  });  
 });
-
-// https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
-function srvTime(){
-  return $.ajax({async: false}).getResponseHeader( 'Date' ); 
-};
-
-var st = srvTime();
-var serverTime = new Date(st);
-var localTime = new Date();
-$('#client_time').html(localTime);
-$('#server_time').html(serverTime);
-
-//https://stackoverflow.com/a/4428396/178673
-Date.prototype.isSameDateAs = function(pDate) {
-  return (
-    this.getFullYear() === pDate.getFullYear() &&
-    this.getMonth() === pDate.getMonth() &&
-    this.getDate() === pDate.getDate()
-  );
-}
-
-if (!localTime.isSameDateAs(serverTime)) {
-  $.get("/assets/scripts/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes()); 
-  location.reload();
-};
 
 //     In the actual plug, get replace http://localhost:5984/smile with /couchdb
 $('#couchdb-export').on('click', function(){
+  var localTime = new Date();
   var url = 'http://localhost:5984/smile/_all_docs?include_docs=true'; 
   $.get(url,function (result)
   {
@@ -169,6 +151,45 @@ $('#couchdb-export').on('click', function(){
 });
 
 
+  //https://stackoverflow.com/a/4428396/178673
+Date.prototype.isSameDateAs = function(pDate) {
+  return (
+    this.getFullYear() === pDate.getFullYear() &&
+    this.getMonth() === pDate.getMonth() &&
+    this.getDate() === pDate.getDate()
+  );
+}
+
+// https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+function srvTime(){
+  return $.ajax().getResponseHeader( 'Date' ); 
+};
+
+function syncSystemDate(){
+    $.when( srvTime() ).then(function(st){
+    var serverTime = new Date(st);
+    var localTime = new Date();
+    console.log(localTime);
+    console.log(serverTime);
+    $('#client_time').html(localTime);
+    $('#server_time').html(serverTime);
+    
+    // Check twice if server time is updated.
+    for(i = 0; i < 2; i++) { 
+      if (!localTime.isSameDateAs(serverTime)) {
+        console.log("Update Server Time");
+        $.get("/assets/scripts/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes()); 
+      } else {
+        console.log("Server Date Matches Device Date.")
+      };
+    };
+  });
+};
+
+syncSystemDate();
+
+
+  
 </script>
 
     <script type="text/javascript">

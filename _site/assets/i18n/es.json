@@ -41,6 +41,7 @@
   "administer-client-date": "Client Date:",
   "administer-server-date": "Server Date:",
   "administer-export": "Export all Data to file",
+  "administer-sync-system-date-button-text": "Sync System Date",  
   "administer-export-button-text": "Export",
   "analytics-title": "Analytics",
   "analytics-description": "These device analytics can help you determine which students are actively interacting with their device.",	

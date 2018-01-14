@@ -41,35 +41,15 @@ $ (document).ready(function(){
   $("#plug-power-off").on('click', function(e){
     powerOff();
   });
+
+  $("#sync-system-date").on('click', function(e){
+    syncSystemDate();
+  });  
 });
-
-// https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
-function srvTime(){
-  return $.ajax({async: false}).getResponseHeader( 'Date' ); 
-};
-
-var st = srvTime();
-var serverTime = new Date(st);
-var localTime = new Date();
-$('#client_time').html(localTime);
-$('#server_time').html(serverTime);
-
-//https://stackoverflow.com/a/4428396/178673
-Date.prototype.isSameDateAs = function(pDate) {
-  return (
-    this.getFullYear() === pDate.getFullYear() &&
-    this.getMonth() === pDate.getMonth() &&
-    this.getDate() === pDate.getDate()
-  );
-}
-
-if (!localTime.isSameDateAs(serverTime)) {
-  $.get("/assets/scripts/update_clock.php?year="+localTime.getFullYear()+"&month="+(localTime.getMonth()+1)+"&day="+localTime.getDate()+"&hour="+localTime.getHours()+"&minute="+localTime.getMinutes()); 
-  location.reload();
-};
 
 //     In the actual plug, get replace http://localhost:5984/smile with /couchdb
 $('#couchdb-export').on('click', function(){
+  var localTime = new Date();
   var url = 'http://localhost:5984/smile/_all_docs?include_docs=true'; 
   $.get(url,function (result)
   {

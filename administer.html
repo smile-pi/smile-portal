@@ -11,23 +11,26 @@ permalink: /administer/
 <p><span data-i18n="administer-connect-3">To connect over Ethernet, point your browser to</span> <strong><span id="ethernet-ip">###.###.###.###</span></strong></p>
 
 <h2 class="text-gray" data-i18n="administer-turn-off">Turn off SMILE Plug</h2>
-
 <p data-i18n="administer-finished">Finished? Power off the SMILE Plug.</p>
 <a class="btn" id="plug-power-off"><i class="icon icon-shutdown"></i> <span data-i18n="administer-power-off-button-text">Power off</span></a>
-
 <div class="clearfix"></div>
-
 <br/>
-<h2 class="text-gray" data-i18n="administer-sync-date">Sync System Date</h2>
 
+<h2 class="text-gray" data-i18n="administer-sync-date">Sync System Date</h2>
 <p><strong data-i18n="administer-client-date">Client Date:</strong> <span id="client_time"></span></p>
 <p><strong data-i18n="administer-server-date">Server Date:</strong> <span id="server_time"></span></p>
+<a class="btn" id="sync-system-date"><i class="icon icon-time"></i> <span data-i18n="administer-sync-system-date-button-text">Sync System Date</span></a>
+<div class="clearfix"></div>
+<br/>
 
 <h2 class="text-gray" data-i18n="administer-export">Export all Data to file.</h2>
 <a class="btn" id="couchdb-export"><i class="icon icon-share"></i> <span data-i18n="administer-export-button-text">Export</span></a>
+<div class="clearfix"></div>
+<br/>
 
 {% contentfor page_specific_scripts no-convert %}
 <script type="text/javascript">  
   {% include administer.js %}
+  {% include update_time.js %}  
 </script>
 {% endcontentfor %}
