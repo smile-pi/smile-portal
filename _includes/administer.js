@@ -47,10 +47,11 @@ $ (document).ready(function(){
   });  
 });
 
-//     In the actual plug, get replace http://localhost:5984/smile with /couchdb
+//     In the actual plug, replace http://localhost:5984/smile with /couchdb
+//     For testing locally, replace http://localhost:5984/couchdb with /smile
 $('#couchdb-export').on('click', function(){
   var localTime = new Date();
-  var url = 'http://localhost:5984/smile/_all_docs?include_docs=true'; 
+  var url = 'http://localhost:5984/couchdb/_all_docs?include_docs=true'; 
   $.get(url,function (result)
   {
       var blob=new Blob([result]);

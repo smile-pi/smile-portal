@@ -1,5 +1,5 @@
-// In the actual plug, get replace http://localhost:5984/smile with /couchdb
-$.get('http://localhost:5984/smile/_design/usage/_view/all?descending=true&include_docs=true&stale=update_after', function( data ) {
+// In the actual plug, get replace `http://localhost:5984/smile` with `/couchdb`
+$.get('/couchdb/_design/usage/_view/all?descending=true&include_docs=true&stale=update_after', function( data ) {
   response = $.parseJSON(data);
   $(function() {
       $.each(response.rows, function(i, item) {

@@ -16,7 +16,7 @@ Needs Jekyll (www.jekyllrb.com)
 
 Edit the `/_includes/administer.js` file, line 53. 
 Change from: `var url = 'http://localhost:5984/smile/_all_docs?include_docs=true';` to 
-`var url = 'http://localhost:5984/couchdb/_all_docs?include_docs=true';`
+`var url = '/couchdb/_all_docs?include_docs=true';`
 (note the change from `/smile` to `/couchdb`)
 
 Build the site into `/_site`
