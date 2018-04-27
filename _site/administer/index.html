@@ -139,7 +139,7 @@
 //     For testing locally, replace http://localhost:5984/couchdb with /smile
 $('#couchdb-export').on('click', function(){
   var localTime = new Date();
-  var url = 'http://localhost:5984/couchdb/_all_docs?include_docs=true'; 
+  var url = '/couchdb/_all_docs?include_docs=true'; 
   $.get(url,function (result)
   {
       var blob=new Blob([result]);
@@ -200,6 +200,12 @@ syncSystemDate();
 </script>
 
     <script type="text/javascript">
+    var $grid = $('.grid').masonry({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 310
+    });
+    
     jQuery(function() {
       $("#lang").val(localStorage.getItem("locale"));
       
@@ -211,10 +217,12 @@ syncSystemDate();
         if (locale){ 
           $.i18n().locale = locale;
           $('body').i18n();
+          $grid.masonry('layout');
         } else {
           localStorage.setItem("locale", "en");
           $.i18n().locale = "en";
           $('body').i18n();
+          $grid.masonry('layout');
         };
       });
       
@@ -224,6 +232,7 @@ syncSystemDate();
         localStorage.setItem("locale", this.value);
         $.i18n().locale = localStorage.getItem("locale");
         $('body').i18n();
+        $grid.masonry('layout');
       });
     
     });

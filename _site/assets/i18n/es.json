@@ -3,7 +3,7 @@
 		"authors": [
 			"Reuben"
 		],
-		"last-updated": "2017-11-09",
+		"last-updated": "2018-03-30",
 		"locale": "es"
 	},
   "menu-brand": "eSMILE-pi Portale",
@@ -17,6 +17,7 @@
 	"applications-choose-application": "Elija su aplicación",
 	"applications-top-applications": "Top Applications",
 	"applications-bible-applications": "Bible Applications",
+	"applications-sindhi-applications": "Sindhi Applications",
 	"applications-coding-applications": "Coding Applications",
 	"applications-digital_skills-applications": "Digital Skill Builders",
 	"applications-fun-applications": "Fun Applications",

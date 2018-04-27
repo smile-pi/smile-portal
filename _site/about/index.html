@@ -93,6 +93,12 @@ SoE emerged in 2009 as a catalytic force to reach remote populations worldwide t
     
 
     <script type="text/javascript">
+    var $grid = $('.grid').masonry({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 310
+    });
+    
     jQuery(function() {
       $("#lang").val(localStorage.getItem("locale"));
       
@@ -104,10 +110,12 @@ SoE emerged in 2009 as a catalytic force to reach remote populations worldwide t
         if (locale){ 
           $.i18n().locale = locale;
           $('body').i18n();
+          $grid.masonry('layout');
         } else {
           localStorage.setItem("locale", "en");
           $.i18n().locale = "en";
           $('body').i18n();
+          $grid.masonry('layout');
         };
       });
       
@@ -117,6 +125,7 @@ SoE emerged in 2009 as a catalytic force to reach remote populations worldwide t
         localStorage.setItem("locale", this.value);
         $.i18n().locale = localStorage.getItem("locale");
         $('body').i18n();
+        $grid.masonry('layout');
       });
     
     });

@@ -81,6 +81,12 @@
 </footer>
     
     <script type="text/javascript">
+    var $grid = $('.grid').masonry({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 310
+    });
+    
     jQuery(function() {
       $("#lang").val(localStorage.getItem("locale"));
       
@@ -92,10 +98,12 @@
         if (locale){ 
           $.i18n().locale = locale;
           $('body').i18n();
+          $grid.masonry('layout');
         } else {
           localStorage.setItem("locale", "en");
           $.i18n().locale = "en";
           $('body').i18n();
+          $grid.masonry('layout');
         };
       });
       
@@ -105,6 +113,7 @@
         localStorage.setItem("locale", this.value);
         $.i18n().locale = localStorage.getItem("locale");
         $('body').i18n();
+        $grid.masonry('layout');
       });
     
     });

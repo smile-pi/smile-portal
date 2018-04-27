@@ -14,6 +14,7 @@ title: Applications
 </form>
 <br/>
 <h2 data-i18n="applications-choose-application">Choose your application</h2>
+
 {% if site.applications_top.size > 0 %}
 <div class="divider"></div>
 <h3 data-i18n="applications-top-applications" class="text-primary">Top Applications</h3>
@@ -30,10 +31,38 @@ title: Applications
       </div>
       <div class="card-body" data-i18n="{{item.i18n_description}}">
         {{item.description}}
+        {{item.content}}
       </div>
       <div class="card-footer">
         <a data-app-title="{{item.title}}" data-app-id="{{item.app_id}}" class="btn btn-primary resource-btn" data-i18n="{{item.i18n_button_text}}">{{item.button_text}}</a>
         <span id="{{ item.app_id }}" class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
+      </div>
+    </div>  
+  </div>
+{% endfor %}
+</div> <!-- .columns -->
+{% endif %}
+
+{% if site.applications_sindhi.size > 0 %}
+<div class="divider"></div>
+<h3 data-i18n="applications-sindhi-applications">Sindhi Applications</h3>
+<div class="grid">
+{% for item in site.applications_sindhi %}
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="{{item.header_image}}" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="{{item.i18n_title}}">{{item.title}}</div>
+        <div class="card-subtitle text-gray" data-i18n="{{item.i18n_subtitle}}">{{item.subtitle}}</div>
+      </div>
+      <div class="card-body" data-i18n="{{item.i18n_description}}">
+        {{item.description}}
+      </div>
+      <div class="card-footer">
+        <a data-app-title="{{item.title}}" data-app-id="{{item.app_id}}" class="btn btn-primary resource-btn" data-i18n="{{item.i18n_button_text}}">{{item.button_text}}</a>
+        <span class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
       </div>
     </div>  
   </div>
@@ -103,34 +132,6 @@ title: Applications
 <h3 data-i18n="applications-digital_skills-applications">Digital Skill Building</h3>
 <div class="grid">
 {% for item in site.applications_digital_skills %}
-  <div class="grid-item">
-    <div class="card">
-      <div class="card-image centered">
-        <img src="{{item.header_image}}" class="img-responsive centered"/>
-      </div>
-      <div class="card-header">
-        <div class="card-title h5" data-i18n="{{item.i18n_title}}">{{item.title}}</div>
-        <div class="card-subtitle text-gray" data-i18n="{{item.i18n_subtitle}}">{{item.subtitle}}</div>
-      </div>
-      <div class="card-body" data-i18n="{{item.i18n_description}}">
-        {{item.description}}
-      </div>
-      <div class="card-footer">
-        <a data-app-title="{{item.title}}" data-app-id="{{item.app_id}}" class="btn btn-primary resource-btn" data-i18n="{{item.i18n_button_text}}">{{item.button_text}}</a>
-        <span class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
-      </div>
-    </div>  
-  </div>
-  {{item.content}}
-{% endfor %}
-</div> <!-- .columns -->
-{% endif %}
-
-{% if site.applications_bible.size > 0 %}
-<div class="divider"></div>
-<h3 data-i18n="applications-bible-applications">Bible Applications</h3>
-<div class="grid">
-{% for item in site.applications_bible %}
   <div class="grid-item">
     <div class="card">
       <div class="card-image centered">

@@ -51,7 +51,7 @@ $ (document).ready(function(){
 //     For testing locally, replace http://localhost:5984/couchdb with /smile
 $('#couchdb-export').on('click', function(){
   var localTime = new Date();
-  var url = 'http://localhost:5984/couchdb/_all_docs?include_docs=true'; 
+  var url = '/couchdb/_all_docs?include_docs=true'; 
   $.get(url,function (result)
   {
       var blob=new Blob([result]);

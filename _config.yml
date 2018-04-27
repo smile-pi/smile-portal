@@ -34,6 +34,7 @@ parallel_localization: true
 collections:
   - applications_top
   - applications_bible
+  - applications_sindhi
   - applications_coding
   - applications_digital_skills
   - applications_fun
