@@ -35,3 +35,24 @@ Add this to the sudoers file so that you can update the date without `sudo`
 
     ALL ALL=NOPASSWD: /sbin/fake-hwclock
     ALL ALL=NOPASSWD: /bin/date
+    
+ 
+#### NOTE THIS CURRENTLY ISN'T WORKING, BUT IT'S CLOSE!   
+To delete all data (when making a fresh plug) open a console windows in Chrome and copy-paste the following code into the console:
+```
+var couchUrl = "";
+$.getJSON("http://localhost:5984/smile/_design/usage/_view/all/", function(data) {
+    data.rows.forEach(function (doc) {
+	$.getJSON("http://localhost:5984/smile/"+doc.id, function(d) {
+         $.ajax({
+            url: 'http://localhost:5984/smile/' + d.id + '?rev=' + d.rev,
+            type: 'DELETE',
+            success: function(result) {
+                console.log("Deleted document with id " + d.id);
+            }
+          });
+        console.log(d);
+	});
+    });
+});
+```

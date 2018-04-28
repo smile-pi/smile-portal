@@ -41,13 +41,13 @@ $('.resource-btn').on('click', function(ev) {
   console.log({who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the " + id + " app"});
   $.ajax({
     type:"POST",
-    url: "http://start.here/smileService/usage", 
+    url: "/smileService/usage", 
     data: { who: localStorage.getItem("who"), who_uuid: localStorage.getItem("who_uuid"), what: "opened", message: "the " + id + " app" }
   });
   if ($(this).next("span.app_link").attr('id') === "smile") {
     var smileUsername = localStorage.getItem("who");
     var smileUUID = localStorage.getItem("who_uuid");
-    var smileLink = "http://start.here/smileService/auth/lti?user=" + smileUsername + "&UUID=" + smileUUID;
+    var smileLink = "/smileService/auth/lti?user=" + smileUsername + "&UUID=" + smileUUID;
     window.open(smileLink);
   } else {
     window.open($(this).next("span.app_link").text());
