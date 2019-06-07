@@ -26,8 +26,8 @@ plugins:
   - jekyll-feed
   - jekyll-contentblocks
   
-languages: ["en", "es"]
-default_lang: "en"
+languages: ["es", "en"]
+default_lang: "es"
 exclude_from_localization: ["assets"]
 parallel_localization: true
 
@@ -40,6 +40,7 @@ collections:
   - applications_fun
   - applications_literacy
   - applications_other
+  - applications_espanol
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -37,7 +37,16 @@ Add this to the sudoers file so that you can update the date without `sudo`
     ALL ALL=NOPASSWD: /bin/date
     
  
+#### NOTE 
+
+If you want to access Futon (couchdb admin) from the network when you're connected to SMILE pi
+
+type in `ssh -L15984:127.0.0.1:5984 pi@192.168.12.1`
+
+Then in a browser, while connected to the SMILE wifi, go to: `http://localhost:15984/_utils/`
+ 
 #### NOTE THIS CURRENTLY ISN'T WORKING, BUT IT'S CLOSE!   
+
 To delete all data (when making a fresh plug) open a console windows in Chrome and copy-paste the following code into the console:
 ```
 var couchUrl = "";
@@ -56,3 +65,6 @@ $.getJSON("http://localhost:5984/smile/_design/usage/_view/all/", function(data)
     });
 });
 ```
+
+Note: I did this on 6-17-18
+https://github.com/ausmarton/couch-bulk-delete

@@ -3,7 +3,7 @@
 		"authors": [
 			"Reuben"
 		],
-		"last-updated": "2018-03-30",
+		"last-updated": "2019-03-29",
 		"locale": "en"
 	},
   "menu-brand": "SMILE-pi Portal",
@@ -23,6 +23,7 @@
 	"applications-fun-applications": "Fun Applications",
 	"applications-literacy-applications": "Literacy Applications",
 	"applications-other-applications": "Other Applications",
+  "applications-espanol-applications": "Spanish Applications",
 	"about-title": "About",
 	"about-edify-title": "Edify",
 	"about-edify-text": "About Edify Text",

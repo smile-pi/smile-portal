@@ -43,11 +43,11 @@ title: Applications
 </div> <!-- .columns -->
 {% endif %}
 
-{% if site.applications_literacy.size > 0 %}
+{% if site.applications_espanol.size > 0 %}
 <div class="divider"></div>
-<h3 data-i18n="applications-literacy-applications">Literacy Applications</h3>
+<h3 data-i18n="applications-espanol-applications" class="text-primary">Español</h3>
 <div class="grid">
-{% for item in site.applications_literacy %}
+{% for item in site.applications_espanol %}
   <div class="grid-item">
     <div class="card">
       <div class="card-image centered">
@@ -63,7 +63,7 @@ title: Applications
       </div>
       <div class="card-footer">
         <a data-app-title="{{item.title}}" data-app-id="{{item.app_id}}" class="btn btn-primary resource-btn" data-i18n="{{item.i18n_button_text}}">{{item.button_text}}</a>
-        <span class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
+        <span id="{{ item.app_id }}" class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
       </div>
     </div>  
   </div>
@@ -160,6 +160,34 @@ title: Applications
 <h3 data-i18n="applications-fun-applications">Fun Applications</h3>
 <div class="grid">
 {% for item in site.applications_fun %}
+  <div class="grid-item">
+    <div class="card">
+      <div class="card-image centered">
+        <img src="{{item.header_image}}" class="img-responsive centered"/>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5" data-i18n="{{item.i18n_title}}">{{item.title}}</div>
+        <div class="card-subtitle text-gray" data-i18n="{{item.i18n_subtitle}}">{{item.subtitle}}</div>
+      </div>
+      <div class="card-body" data-i18n="{{item.i18n_description}}">
+        {{item.description}}
+        {{item.content}}
+      </div>
+      <div class="card-footer">
+        <a data-app-title="{{item.title}}" data-app-id="{{item.app_id}}" class="btn btn-primary resource-btn" data-i18n="{{item.i18n_button_text}}">{{item.button_text}}</a>
+        <span class="app_link" style="display:none;" data-i18n="{{item.i18n_app_href}}">{{item.app_href}}</span>
+      </div>
+    </div>  
+  </div>
+{% endfor %}
+</div> <!-- .columns -->
+{% endif %}
+
+{% if site.applications_literacy.size > 0 %}
+<div class="divider"></div>
+<h3 data-i18n="applications-literacy-applications">English Literacy Applications</h3>
+<div class="grid">
+{% for item in site.applications_literacy %}
   <div class="grid-item">
     <div class="card">
       <div class="card-image centered">
