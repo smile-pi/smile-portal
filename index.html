@@ -2,6 +2,7 @@
 layout: default
 title: Applications
 ---
+{% assign include_spanish = false %}
 <h1 class="text-primary" data-i18n="applications-title">Applications</h1>
 <form id="usernameForm">
 
@@ -43,7 +44,7 @@ title: Applications
 </div> <!-- .columns -->
 {% endif %}
 
-{% if site.applications_espanol.size > 0 %}
+{% if site.applications_espanol.size > 0 and include_spanish == true %}
 <div class="divider"></div>
 <h3 data-i18n="applications-espanol-applications" class="text-primary">Español</h3>
 <div class="grid">
