@@ -3,7 +3,7 @@
 		"authors": [
 			"Reuben"
 		],
-		"last-updated": "2019-03-29",
+		"last-updated": "2021-01-21",
 		"locale": "en"
 	},
   "menu-brand": "SMILE-pi Portal",
@@ -47,5 +47,7 @@
   "administer-export-button-text": "Export",
   "analytics-title": "Analytics",
   "analytics-description": "These device analytics can help you determine which students are actively interacting with their device.",
+  "attributions-title": "Software Attributions",
+  "attributions-subtitle": "Copyright and License Notifications",
   "": ""
 }

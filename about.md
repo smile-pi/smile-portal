@@ -6,18 +6,15 @@ lang: en
 ---
 ## SMILE Pi
 
-The SMILE Pi (SMILE Plug) is a low-cost hardware solution that allows instructors to create a private micro-cloud for up to 20 users. 
-SMILE Pi creates a portable Wi-Fi access point, gateway, and content server with which users can access SMILE Global from any device. 
+The SMILE-pi (SMILE Plug) is a low-cost hardware solution that allows instructors to create a private micro-cloud for up to 20 users. 
+SMILE-pi creates a portable Wi-Fi access point, gateway, and content server with which users can access SMILE Global from any device. 
 
 The SMILE Pi can also serve static content from a plugged in USB Flash Drive.
 The SMILE Pi serves the Stanford Mobile Inquiry-Based Learning Environment (SMILE) software, in addition to other available open education resources. 
 
-The software contained on the SMILE Pi is all freely available, permissively licensed Open Educational Resources.
-Several Open-Source packages are sourced from the RACHEL-Pi: [http://pi.worldpossible.org](http://pi.worldpossible.org).
-
 ## Edify
 
-The Smile Plug package is configured by a team with members from both Edify and Seeds of Empowerment. 
+The SMILE-pi package is configured by a team with members from both Edify and Seeds of Empowerment. 
 
 Edify is an international non-profit 501(c)(3) organization who's mission is to improve and expand sustainable Christ-centered education, globally. 
 
@@ -33,3 +30,10 @@ Building upon both innovative mobile technology and educational research from St
 SoE emerged in 2009 as a catalytic force to reach remote populations worldwide through mobile learning.
 
 The SoE team partners with local underserved communities around the world to improve access and quality of education, to amplify and augment learning programs where they exist, and to create new opportunities for learning where traditional education systems are lacking or non-existent.
+
+---
+
+##### Software Attributions
+The software contained on the SMILE-pi is all freely available, permissively licensed Open Educational Resources (OER).
+
+[View Software Notifications](/attributions).

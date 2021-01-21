@@ -37,6 +37,16 @@ $ (document).ready(function(){
     }
     return this;
   };
+
+  let reachable = hostReachable();
+  if(reachable){
+    $('#internet_connection_state').css('color','green');
+    $('#internet_connection_state').text('Connected');
+  } else {
+    $('#internet_connection_state').css('color','red');
+    $('#internet_connection_state').text('Disconnected');
+  };
+  
   
   $("#plug-power-off").on('click', function(e){
     powerOff();
@@ -63,3 +73,20 @@ $('#couchdb-export').on('click', function(){
   });      
 });
 
+function hostReachable() {
+
+  // Handle IE and more capable browsers
+  var xhr = new ( window.ActiveXObject || XMLHttpRequest )( "Microsoft.XMLHTTP" );
+
+  // Open new request as a HEAD to the root hostname with a random param to bust the cache
+  xhr.open( "HEAD", "//analysis.smile-pi.org/reachable?rand=" + Math.floor((1 + Math.random()) * 0x10000), false );
+
+  // Issue request and handle response
+  try {
+    xhr.send();
+    return ( xhr.status >= 200 && (xhr.status < 300 || xhr.status === 304) );
+  } catch (error) {
+    return false;
+  }
+
+};
