@@ -1,8 +1,8 @@
 // In the actual plug, get replace `http://localhost:5984/smile` with `/couchdb`
 $.get('/couchdb/_design/usage/_view/all?descending=true&include_docs=true&stale=update_after', function( data ) {
-  response = $.parseJSON(data);
+  //response = $.parseJSON(data); No longer needed with Couchdb 2.3.1
   $(function() {
-      $.each(response.rows, function(i, item) {
+      $.each(data.rows, function(i, item) {
           var $tr = $('<li class="user '+item.doc.who_uuid+'" data-filter-name="'+item.doc.who+'">').append(
               '<a class="toggle-user" data-filter-uuid="'+ item.doc.who_uuid +'">'+item.doc.who +'</a> ',
               item.doc.what, ' ',

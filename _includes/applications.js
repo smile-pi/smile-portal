@@ -3,7 +3,7 @@ $( document ).ready( function() {
   if (savedUser) { $("#username").attr('value', savedUser); };  
 });
 
-//     In the actual plug, get replace http://localhost:5984/smile with /couchdb
+// In the actual plug, get replace http://localhost:5984/smile with /couchdb
 // Generate UUID
 function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
